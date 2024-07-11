@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 3001;
 
-const connectDb = require('./config/DbConfig');
+const connectDB = require('./config/DbConfig');
 
 // Connect to the database
 connectDB();
