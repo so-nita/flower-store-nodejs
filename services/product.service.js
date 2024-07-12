@@ -6,6 +6,11 @@ const getAllAsync = async () => {
         let products = await Product.find();
         return Response.SuccessResponse(products);
     } catch (error) {
-        console.error('Error in product service:', error);
+        return Response.fail(error);
     }
+};
+
+
+module.exports = {
+    getAllAsync
 };

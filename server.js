@@ -10,6 +10,8 @@ const connectDB = require('./config/DbConfig');
 // Connect to the database
 connectDB();
 
+
+
 mongoose.connection.once('open', ()=>{
     console.log('Connected to database');
     app.listen(port, ()=> {

@@ -3,11 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
+    
     <title>Document</title>
+    <!-- Import Style -->
+    <%- include ('styles/link.style.ejs') %>
+
 </head>
 <body>
+    <!-- Navbar -->
     <%- include ('components/navbar.view.ejs') %>
-    <h1 class="text-4xl text-red-500"> Hi </h1>
+    <!-- End Navbar -->
+
+    <!-- Content -->
+    <h1 class="text-4xl text-red-500" style="font-family: var(--rale-way); color: var(--custom-color);"> Hi </h1>
+    <p class="custom-class">This is a paragraph with custom styles.</p>
+    <!-- End Content -->
+
+    <!-- Import Script -->
+    <%- include ('styles/script.style.ejs') %>
 </body>
 </html>
