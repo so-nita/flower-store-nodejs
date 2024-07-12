@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
+    
     <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Lunasima:wght@400;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Import Style -->
+    <%- include ('styles/link.style.ejs') %>
+
 </head>
 <body>
-    <h1> Hi </h1>
-        <p>  
-            <a href="">
-                <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="google logo">
-                <p>
-                </p>
-            </a>
-        </p>
+    <!-- Navbar -->
+    <%- include ('components/navbar.view.ejs') %>
+    <!-- End Navbar -->
+
+    <!-- Content -->
+    <h1 class="text-4xl text-red-500" style="font-family: var(--rale-way); color: var(--custom-color);"> Hi </h1>
+    <p class="custom-class">This is a paragraph with custom styles.</p>
+    <!-- End Content -->
+
+    <!-- Import Script -->
+    <%- include ('styles/script.style.ejs') %>
 </body>
 </html>
