@@ -7,25 +7,47 @@ const navlinks = [
     { label: "NEWS", link: "#" },
     { label: "CONTACT", link: "#" }
 ];
+const product = [
+    {
+        image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/1.png",
+        name:"Premium Joyful",
+        price:"1 x $65.00"
+    },
+    {
+        image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/2.png",
+        name:"Premium Joyful",
+        price:"1 x $65.00"
+    },
+    {
+        image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/3.png",
+        name:"Premium Joyful",
+        price:"1 x $65.00"
+    },
+    {
+        image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/4.png",
+        name:"Premium Joyful",
+        price:"1 x $65.00"
+    }
+];
 %>
 <main class="flex justify-center px-10">
-    <nav class="flex justify-between px-4 w-4/5 items-center py-6">
-        <section class="lg:flex items-center hidden gap-4">
+    <nav class="flex justify-between lg:px-4 lg:w-4/5 w-full items-center py-6">
+        <section class="lg:flex hidden">
           <!-- Logo -->
             <a href="/" class="text-4xl font-mono">
                 <img src="https://tunatheme.com/tf/html/fiama-preview/fiama/img/logo.png" alt="Fiama Logo" class="h-8" />
             </a>
         </section>
-        <section class="w-full flex justify-center flex-wrap items-center gap-4 lg:hidden">
-            <div class="flex justify-center w-full">
+        <section class="w-full flex bg justify-center flex-nowrap items-center gap-4 lg:hidden">
+            <div class="w-full">
                 <!-- Logo -->
                 <a href="/" class="text-4xl font-mono">
                     <img src="https://tunatheme.com/tf/html/fiama-preview/fiama/img/logo.png" alt="Fiama Logo" class="h-8" />
                 </a>
             </div>
-            <div class="w-full flex gap-5 items-center justify-center">
+            <div class="w-full flex gap-5 items-center justify-end">
                 <!-- Cart Section -->
-                <section onclick="toggleProduct(true)" class="items-center gap-8 flex lg:hidden">
+                <section onclick="toggleProduct(true)" class="lg:hidden">
                     <div class="relative">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
                             <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
@@ -34,17 +56,11 @@ const navlinks = [
                             2
                         </span>
                     </div>
-                    <!-- Cart Button -->
-                    <div class="block">
-                        <button class="text-left">
-                            YOUR CART<br /><span class="text-[#E55472]">$89.25</span>
-                        </button>
-                    </div>
                 </section>
                 <!-- Menu -->
                 <svg onclick="toggleMenu(true)" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-                  </svg>
+                </svg>
             </div>
         </section>
         <div class="hidden lg:flex items-center gap-8">
@@ -85,53 +101,27 @@ const navlinks = [
       <div id="sideProduct" class="fixed h-full w-screen bg-black/50 backdrop-blur-sm top-0 right-0 translate-x-full transition-all">
         <section class="text-black bg-white text-left flex-col absolute right-0 z-50 cursor-pointer top-0 h-screen p-8 gap-8 w-80 flex">
             <div class="w-full flex items-center justify-between border-b py-8">
-                <p>CART</p>
+                <p class="text-xl font-semibold">CART</p>
                 <svg class="text-3xl cursor-pointer" onclick="toggleProduct(false)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M2.146 2.854a.5.5 0 0 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
                 </svg>
             </div>
-            <div class="relative flex gap-8 border-b">
-                <div>
-                    <img class="w-24 h-full" src="https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/1.png" alt="">
-                    <div class="absolute top-0 hover:text-white duration-300 left-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-full transform -translate-y-1/2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
-                        </svg>
+            <% product.forEach((pro) => { %>
+                <div class="relative flex gap-8 border-b">
+                    <div>
+                        <img class="w-24 h-full" src="<%= pro.image %>" alt="">
+                        <div class="absolute top-0 hover:text-white duration-300 left-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-full transform -translate-y-1/2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <p><%= pro.name %></p>
+                        <span><%= pro.price %></span>
                     </div>
                 </div>
-                 <div class="block">
-                      <p> Premium Joyful</p>
-                      <span>1 x $65.00</span>
-                 </div>
-            </div>
-            <div class="relative flex gap-8 border-b">
-                <div>
-                    <img class="w-24 h-full" src="https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/2.png" alt="">
-                    <div class="absolute top-0 hover:text-white duration-300 left-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-full transform -translate-y-1/2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
-                        </svg>
-                    </div>
-                </div>
-                <div class="block">
-                     <p> Premium Joyful</p>
-                     <span>1 x $65.00</span>
-                </div>
-           </div>
-           <div class="relative flex gap-8 border-b">
-            <div>
-                 <img class="w-24 h-full" src="https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/1.png" alt="">
-                 <div class="absolute top-0 hover:text-white duration-300 left-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-full transform -translate-y-1/2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
-                    </svg>
-                 </div>
-             </div>
-            <div class="block">
-                 <p> Premium Joyful</p>
-                 <span>1 x $65.00</span>
-            </div>
-       </div>
+            <% }); %>
         </section>
      </div>
         <!-- Cart Section -->

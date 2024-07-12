@@ -1,0 +1,114 @@
+<%
+    const footerData = [
+        {
+            "menu": "MY ACCOUNT",
+            "submenus": [
+                {
+                    "submenu": "My Account",
+                    "link": "#"
+                },
+                {
+                    "submenu": "Checkout",
+                    "link": "#"
+                },
+                {
+                    "submenu": "Contact us",
+                    "link": "#"
+                },
+                {
+                    "submenu": "Shopping Cart",
+                    "link": "#"
+                },
+                {
+                    "submenu": "Wishlist",
+                    "link": "#"
+                }
+            ]
+        },
+        {
+            "menu": "QUICK LINKS",
+            "submenus": [
+                {
+                    "submenu": "Store Location",
+                    "link": "#"
+                },
+                {
+                    "submenu": "Size Guide",
+                    "link": "#"
+                },
+                {
+                    "submenu": "My account",
+                    "link": "#"
+                },
+                {
+                    "submenu": "FAQs",
+                    "link": "#"
+                }
+            ]
+        },
+        {
+            "menu": "CUSTOMER SERVICE",
+            "submenus": [
+                {
+                    "submenu": "Contact Us",
+                    "link": "#"
+                },
+                {
+                    "submenu": "Returns",
+                    "link": "#"
+                },
+                {
+                    "submenu": "Site Map",
+                    "link": "#"
+                }
+            ]
+        },
+        {
+            "menu": "EXTRAS",
+            "submenus": [
+                {
+                    "submenu": "Brands",
+                    "link": "#"
+                },
+                {
+                    "submenu": "Gift Certificates",
+                    "link": "#"
+                },
+                {
+                    "submenu": "Affiliate",
+                    "link": "#"
+                },
+                {
+                    "submenu": "Specials",
+                    "link": "#"
+                }
+            ]
+        }
+    ];
+%>
+<!-- Footer container -->
+<footer class="flex flex-col items-center bg-[--bg-footer] text-center text-surface dark:bg-neutral-700 dark:text-white lg:text-left">
+  <div class="container p-6">
+    <div class="grid place-items-center md:grid-cols-2 lg:grid-cols-4">
+      <!-- Loop through each footer section -->
+      <% footerData.forEach((footer) => { %>
+        <div class="mb-6">
+            <h5 class="mb-2.5 font-bold text-white uppercase"><%= footer.menu %></h5>
+            <ul class="mb-0 list-none">
+                <% footer.submenus.forEach((submenu) => { %>
+                    <li class="py-2">
+                        <a class="text-[#8F9090]" href="<%= submenu.link %>"><%= submenu.submenu %></a>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+
+  <!-- Copyright section -->
+  <!-- <div class="w-full bg-black/5 p-4 text-center">
+    © 2023 Copyright:
+    <a href="https://tw-elements.com/">TW Elements</a>
+  </div> -->
+</footer>
