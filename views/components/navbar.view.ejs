@@ -98,8 +98,8 @@ const product = [
             </section>
         </div>
       <!-- Sidebar product -->
-      <div id="sideProduct" class="fixed h-full w-screen bg-black/50 backdrop-blur-sm top-0 right-0 translate-x-full transition-all">
-        <section class="text-black bg-white text-left flex-col absolute right-0 z-50 cursor-pointer top-0 h-screen p-8 gap-8 w-80 flex">
+      <div id="sideProduct" class="fixed h-full z-40 w-screen bg-black/50 backdrop-blur-sm top-0 right-0 translate-x-full transition-all">
+        <section class="text-black bg-white text-left overflow-y-auto overflow-hidden flex-col z-0 absolute cursor-pointer right-0 z-40 cursor-pointer top-0 h-screen p-8 gap-8 w-96 flex">
             <div class="w-full flex items-center justify-between border-b py-8">
                 <p class="text-xl font-semibold">CART</p>
                 <svg class="text-3xl cursor-pointer" onclick="toggleProduct(false)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -122,15 +122,28 @@ const product = [
                     </div>
                 </div>
             <% }); %>
+            <!-------Totoal------->
+            <div class="flex justify-between">
+                 <p>Subtotal:</p>
+                 <span class="text-[--primary]">$310.00</span>
+            </div>
+            <!-------Button------->
+            <div class="flex justify-between">
+                <button class="btn-view btn-view-cart">VIEW CART</button>
+                <button class="btn-check btn-checkout">CHECKOUT</button>
+            </div>
+            <div class="text-[--footer]">
+                <span>Free Shipping on All Orders Over $100!</span>
+            </div>
         </section>
      </div>
         <!-- Cart Section -->
         <section class="items-center gap-5 hidden lg:flex">
-            <div class="relative">
+            <div class="relative z-0">
                 <svg onclick="toggleProduct(true)"  xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
                     <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
                   </svg>
-                <span class="absolute z-10 top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-[#E55472] rounded-full transform translate-x-1/2 -translate-y-1/2">
+                <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-[#E55472] rounded-full transform translate-x-1/2 -translate-y-1/2">
                     2
                 </span>
             </div>
