@@ -22,11 +22,15 @@ const getByIdAsync = async (id) => {
 
 const createAsync = async (product) => {
     try {
-        var valid = ValidityState(validate(product));
-        if(valid.error){
-            return Response.fail(valid.error);
+        // Validate the product object
+        const { error, value } = productSchema.validate(product);
+        if (error) {
+            return Response.fail(error.details[0].message);
         }
-        let newProduct = await Product.create(product);
+
+        // Create the product
+        let newProduct = await Product.create(value);
+        console.log(newProduct);
 
         return Response.SuccessResponse(newProduct);
     } catch (error) {
