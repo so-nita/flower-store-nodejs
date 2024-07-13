@@ -1,0 +1,112 @@
+<%
+const productData = [
+    {
+        "background":"bg-[--green]",
+        status:"10%",
+        image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/1.png",
+        name:"PINK FLOWER TREE",
+        price:"$18.00",
+        discount:"$21.00"
+    },
+    {
+        "background":"bg-[--primary]",
+        status: "HOT",
+        image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/2.png",
+        name:"PREMIUM JOYFUL",
+        price:"$18.00",
+        discount: ""
+    },
+    {
+        "background":"bg-[--green]",
+        status: "12%",
+        image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/3.png",
+        name:"THE WHITE ROSE",
+        price:"$16.00",
+        discount:"$19.00"
+    },
+    {
+        "background":"bg-[--primary]",
+        status: "HOT",
+        image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/4.png",
+        name:"RED ROSE BOUQUET",
+        price:"$20.00",
+        discount:""
+    },
+    {
+        "background":"bg-[--primary]",
+        status:"HOT",
+        image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/5.png",
+        name:"HEART'S DESIRE",
+        price:"$15.00",
+        discount:""
+    },
+    {
+        "background":"bg-[--green]",
+        status: "15%",
+        image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/6.png",
+        name:"ASSORTED ROSES",
+        price:"$17.00",
+        discount: ""
+    },
+    {
+        "background":"bg-[--primary]",
+        status: "HOT",
+        image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/7.png",
+        name:"ROSES SURPRISE",
+        price:"$12.00",
+        discount:""
+    },
+    {
+        "background":"bg-[--primary]",
+        status: "12%",
+        image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/8.png",
+        name:"RED ROSE BOUQUET",
+        price:"$14",
+        discount:"$25.00"
+    }
+];
+%>
+<div>
+    <div class="w-full text-center">
+        <h1 class="lg:text-5xl text-3xl font-[--montserrat] mb-10 font-bold">new arrival items</h1>
+    </div>
+    <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-x-8 gap-y-14 px-10">
+        <% productData.forEach((product) => { %>
+        <div class="group">
+            <div class="card-product w-full bg-white overflow-hidden">
+                <div class="relative">
+                    <span class="absolute top-2 <%= product.background %> font-semibold text-white px-3 text-lg"><%= product.status %></span>
+                    <div class="w-full aspect-[2/3]">
+                        <img src=" <%= product.image %>" alt="Pink Flower Tree"class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="card-overlay flex items-center bg-[--gray] bg-opacity-75">
+                    <div class="w-14 h-10 flex justify-center items-center hover:bg-[--primary] duration-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                        </svg>
+                    </div>
+                    <div class="w-full flex justify-center">
+                        <button class="h-10 w-full text-white hover:bg-[--primary] duration-400">ADD TO CART</button>
+                    </div>
+                    <div class="w-14 h-10 flex justify-center items-center hover:bg-[--primary] duration-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-shuffle" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.6 9.6 0 0 0 7.556 8a9.6 9.6 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.6 10.6 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.6 9.6 0 0 0 6.444 8a9.6 9.6 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5"/>
+                            <path d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192m0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full pt-5">
+                <div class="flex justify-center">
+                    <p class="hover:text-[--primary] font=[--rale-way] duration-400"><%= product.name %></p>
+                </div>
+                <div class="flex gap-3 justify-center items-center">
+                    <span><%= product.price %></span>
+                    <span class="line-through"><%= product.discount %></span>
+                </div>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+</div>

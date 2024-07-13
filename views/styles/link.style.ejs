@@ -7,8 +7,12 @@
     :root {
         --custom-color: #8b5cf6;
         --rale-way : "Raleway", sans-serif;
+        --montserrat:"Montserrat", sans-serif,
+        --poppins:'Poppins', sans-serif;
         --bg-footer: #272829;
         --primary: #E55472;
+        --gray: #919598;
+        --green: #9AC45C;
     }
     ::-webkit-scrollbar {
        display: none;
@@ -58,7 +62,6 @@
     .btn-view-cart:hover::before {
        width: 100%;
     }
-
     /* Button view cart*/
     .btn-check {
         position: relative;
@@ -97,5 +100,28 @@
 
     .btn-checkout:hover::before {
         width: 100%;
+    }
+    /* Card product */
+    .card-product {
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+    .card-overlay {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        opacity: 0;
+        transform: translateY(100%);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .group:hover .card-overlay {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    /* hover on svg icon */
+    .hover\:text-\[\-\-primary\]:hover svg {
+        fill: var(--primary);
+        transition: all 0.3s linear;
     }
 </style>
