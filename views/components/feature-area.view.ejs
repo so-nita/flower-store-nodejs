@@ -1,0 +1,39 @@
+<% 
+    const featureArea = [
+         {
+            image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/icons/svg/8-trolley.svg",
+            name: "Free shipping",
+            order: "On all orders over $49.00"
+         },
+         {
+            image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/icons/svg/9-money.svg",
+            name: "15 days returns",
+            order: "Moneyback guarantee"
+         },
+         {
+            image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/icons/svg/10-credit-card.svg",
+            name: "Secure checkout",
+            order: "Protected by Paypal"
+         },
+         {
+            image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/icons/svg/11-gift-card.svg",
+            name: "Offer & gift here",
+            order: "On all orders over"
+         },
+    ];
+%>
+<div class="px-10 w-full flex justify-center">
+    <div class="grid w-full justify-center lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-x-4 gap-y-16 border py-6 px-4">
+        <% featureArea.forEach((feature) => { %>
+            <div class="flex justify-center items-center gap-x-8"> 
+                <div>
+                    <img class="w-12 h-12" src="<%= feature.image %>" alt="">
+                </div>
+                <div>
+                    <p><%= feature.name %></p>
+                    <span class="text-sm"><%= feature.order %></span>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>

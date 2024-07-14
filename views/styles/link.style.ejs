@@ -2,7 +2,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Lunasima:wght@400;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
+<script src="https://unpkg.com/scrollreveal"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <style>
     :root {
         --custom-color: #8b5cf6;
@@ -124,4 +126,51 @@
         fill: var(--primary);
         transition: all 0.3s linear;
     }
+    /* Back to top button */
+    #back-to-top {
+        width: 40px;
+        height: 40px;
+        background: white;
+        border: none;
+        outline: none;
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        cursor: pointer;
+        transform: rotate(45deg);
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        transition: box-shadow 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+        
+    #back-to-top:hover {
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        background-color: var(--primary);
+        transition: 0.3s all linear;
+    }
+
+    #back-to-top svg {
+        transform: rotate(-45deg);
+        transition: fill 0.3s ease;
+    }
+
+    #back-to-top:hover svg path {
+        fill: white;
+    }
+    .swiper-button-next {
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .swiper-button-prev {
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 18px;
+    }
+    /* Modal */
+    /* .modal {
+        display: none;
+     } */
 </style>
