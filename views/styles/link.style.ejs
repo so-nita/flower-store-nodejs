@@ -1,6 +1,7 @@
 <!-- Font Raleway-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton+SC&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Lunasima:wght@400;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <!-- CDN scroll reval -->
 <script src="https://unpkg.com/scrollreveal"></script>
@@ -14,12 +15,13 @@
         --rale-way : "Raleway", sans-serif;
         --montserrat:"Montserrat", sans-serif,
         --poppins:'Poppins', sans-serif;
+        --anton:: "Anton SC", sans-serif;
         --bg-footer: #272829;
         --primary: #E55472;
         --gray: #919598;
         --green: #9AC45C;
+        --bg-banner: #F0F0F0;
     }
-
     /* Hidden scrollbar */
     ::-webkit-scrollbar {
        display: none;
@@ -185,4 +187,31 @@
     #cartModal {
         display: none;
      }
+     
+    /* Shop banner */
+    .shop-content {
+        position: relative;
+    }
+
+    .shop-content h2 {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        font-family: var( --anton);
+        font-weight: bolder;
+        font-size: 5rem;
+    }
+
+    .shop-content h2:nth-child(1) {
+        color: transparent;
+        -webkit-text-stroke: 3px var(--primary);
+        filter: blur(3px);
+    }
+
+    .shop-content h2:nth-child(3) {
+        color: var(--primary);
+        filter: drop-shadow(0 15px var(--primary));
+        z-index: 1;
+        text-shadow: -15px 15px 15px rgba(var(--primary)),
+        15px -15px 15px  rgba(var(--primary)),
+    }
 </style>
