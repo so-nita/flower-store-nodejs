@@ -1,11 +1,11 @@
 <%
 const navlinks = [
-    { label: "HOME", link: "#" },
-    { label: "PAGE", link: "#" },
-    { label: "SHOP", link: "#" },
-    { label: "PORTFOLIO", link: "#" },
-    { label: "NEWS", link: "#" },
-    { label: "CONTACT", link: "#" }
+    { label: "HOME", link: "/" },
+    { label: "PAGE", link: "page" },
+    { label: "SHOP", link: "/shop" },
+    { label: "PORTFOLIO", link: "portfolio" },
+    { label: "NEWS", link: "news" },
+    { label: "CONTACT", link: "contact" }
 ];
 const product = [
     {
@@ -30,10 +30,15 @@ const product = [
     }
 ];
 %>
+<style>
+    .active {
+        color: var(--primary);
+    }
+</style>
 <main class="flex justify-center px-10">
     <nav class="flex justify-between lg:px-4 lg:w-4/5 w-full items-center py-6">
         <section class="lg:flex hidden">
-          <!-- Logo -->
+            <!-- Logo -->
             <a href="/" class="text-4xl font-mono">
                 <img src="https://tunatheme.com/tf/html/fiama-preview/fiama/img/logo.png" alt="Fiama Logo" class="h-8" />
             </a>
@@ -51,7 +56,7 @@ const product = [
                     <div class="relative">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
                             <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
-                          </svg>
+                        </svg>
                         <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-[#E55472] rounded-full transform translate-x-1/2 -translate-y-1/2">
                             4
                         </span>
@@ -65,7 +70,7 @@ const product = [
         </section>
         <div class="hidden lg:flex items-center gap-8">
             <% navlinks.forEach((d) => { %>
-                <a class="text-black hover:text-[#E55472]" href="<%= d.link %>">
+                <a class="text-black hover:text-[#E55472] <%= d.link === currentRoute ? 'active' : '' %>" href="<%= d.link %>">
                     <%= d.label %>
                 </a>
             <% }); %>
@@ -82,67 +87,69 @@ const product = [
                     </section>
                     <svg class="text-3xl cursor-pointer" onclick="toggleMenu(false)"  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                         <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-                      </svg>
+                    </svg>
                 </div>
                 <div class="flex gap-3 items-center px-2 py-2.5 border border-[#E55472]">
                     <input type="text" class="w-full border-none focus:outline-none"/>
                     <svg class="text-2xl" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                      </svg>
+                    </svg>
                 </div>
-                <% navlinks.forEach((d) => { %>
-                    <a class="font-semibold hover:text-[#E55472] duration-300" href="<%= d.link %>">
-                        <%= d.label %>
-                    </a>
-                <% }); %>
+                <div class="hidden lg:flex items-center gap-8">
+                    <% navlinks.forEach((d) => { %>
+                        <a class="text-black hover:text-[#E55472] <%= d.link === currentRoute ? 'active' : '' %>" href="<%= d.link %>">
+                            <%= d.label %>
+                        </a>
+                    <% }); %>
+                </div>
             </section>
         </div>
-      <!-- Sidebar product -->
-      <div id="sideProduct" class="fixed h-full z-40 w-screen bg-black/50 backdrop-blur-sm top-0 right-0 translate-x-full transition-all">
-        <section class="text-black bg-white text-left overflow-y-auto overflow-hidden flex-col z-0 absolute cursor-pointer right-0 z-40 cursor-pointer top-0 h-screen p-8 gap-8 w-96 flex">
-            <div class="w-full flex items-center justify-between border-b py-8">
-                <p class="text-xl font-semibold">CART</p>
-                <svg class="text-3xl cursor-pointer" onclick="toggleProduct(false)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M2.146 2.854a.5.5 0 0 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-                </svg>
-            </div>
-            <% product.forEach((pro) => { %>
-                <div class="relative flex gap-8 border-b">
-                    <div>
-                        <img class="w-24 h-full" src="<%= pro.image %>" alt="">
-                        <div class="absolute top-0 hover:text-white duration-300 left-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-full transform -translate-y-1/2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
-                            </svg>
+        <!-- Sidebar product -->
+        <div id="sideProduct" class="fixed h-full z-40 w-screen bg-black/50 backdrop-blur-sm top-0 right-0 translate-x-full transition-all">
+            <section class="text-black bg-white text-left overflow-y-auto overflow-hidden flex-col z-0 absolute cursor-pointer right-0 z-40 cursor-pointer top-0 h-screen p-8 gap-8 w-96 flex">
+                <div class="w-full flex items-center justify-between border-b py-8">
+                    <p class="text-xl font-semibold">CART</p>
+                    <svg class="text-3xl cursor-pointer" onclick="toggleProduct(false)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M2.146 2.854a.5.5 0 0 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                    </svg>
+                </div>
+                <% product.forEach((pro) => { %>
+                    <div class="relative flex gap-8 border-b">
+                        <div>
+                            <img class="w-24 h-full" src="<%= pro.image %>" alt="">
+                            <div class="absolute top-0 hover:text-white duration-300 left-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-full transform -translate-y-1/2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="block">
+                            <p><%= pro.name %></p>
+                            <span><%= pro.price %></span>
                         </div>
                     </div>
-                    <div class="block">
-                        <p><%= pro.name %></p>
-                        <span><%= pro.price %></span>
-                    </div>
+                <% }); %>
+                <!-------Totoal------->
+                <div class="flex justify-between">
+                    <p>Subtotal:</p>
+                    <span class="text-[--primary]">$310.00</span>
                 </div>
-            <% }); %>
-            <!-------Totoal------->
-            <div class="flex justify-between">
-                 <p>Subtotal:</p>
-                 <span class="text-[--primary]">$310.00</span>
-            </div>
-            <!-------Button------->
-            <div class="flex justify-between">
-                <button class="btn-view btn-view-cart">VIEW CART</button>
-                <button class="btn-check btn-checkout">CHECKOUT</button>
-            </div>
-            <div class="text-[--footer]">
-                <span>Free Shipping on All Orders Over $100!</span>
-            </div>
-        </section>
-     </div>
+                <!-------Button------->
+                <div class="flex justify-between">
+                    <button class="btn-view btn-view-cart">VIEW CART</button>
+                    <button class="btn-check btn-checkout">CHECKOUT</button>
+                </div>
+                <div class="text-[--footer]">
+                    <span>Free Shipping on All Orders Over $100!</span>
+                </div>
+            </section>
+        </div>
         <!-- Cart Section -->
         <section class="items-center gap-5 hidden lg:flex">
             <div class="relative z-0">
-                <svg onclick="toggleProduct(true)"  xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+                <svg onclick="toggleProduct(true)" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
                     <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
-                  </svg>
+                </svg>
                 <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-[#E55472] rounded-full transform translate-x-1/2 -translate-y-1/2">
                     4
                 </span>
@@ -159,7 +166,7 @@ const product = [
 </main>
 
 <script>
-   function toggleMenu(isOpen) {
+    function toggleMenu(isOpen) {
         const sideMenu = document.getElementById('sideMenu');
         if (isOpen) {
             sideMenu.style.transitionDuration = '500ms'; // Set transition duration to 300ms
@@ -172,15 +179,15 @@ const product = [
         }
     }
     function toggleProduct(isOpen) {
-    const sideProduct = document.getElementById('sideProduct');
-    if (isOpen) {
-        sideProduct.style.transitionDuration = '500ms'; // Set transition duration to 500ms
-        sideProduct.classList.add('translate-x-0');
-        sideProduct.classList.remove('-translate-x-full');
-    } else {
-        sideProduct.style.transitionDuration = '500ms'; // Set transition duration to 500ms
-        sideProduct.classList.add('-translate-x-full');
-        sideProduct.classList.remove('translate-x-0');
+        const sideProduct = document.getElementById('sideProduct');
+        if (isOpen) {
+            sideProduct.style.transitionDuration = '500ms'; // Set transition duration to 500ms
+            sideProduct.classList.add('translate-x-0');
+            sideProduct.classList.remove('-translate-x-full');
+        } else {
+            sideProduct.style.transitionDuration = '500ms'; // Set transition duration to 500ms
+            sideProduct.classList.add('-translate-x-full');
+            sideProduct.classList.remove('translate-x-0');
+        }
     }
-}
 </script>
