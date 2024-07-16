@@ -1,6 +1,4 @@
-const { json } = require('express');
 const productService = require('../services/product.service');
-const Product = require('../models/Product');
 
 const getAllAsync = async (req, res) => {
     try {
@@ -50,15 +48,11 @@ const updateAsync = async (req, res) => {
 };
 
 const deleteAsync = async (req, res) => {
-    try {
-        var product = await productService.deleteAsync(req.params.id);
-        if (!product) {
-            res.status(404).json({ message: 'Product not found' });
-        } else {
-            res.status(200).json({ message: 'Product deleted' });
-        }
-    } catch (err) {
-        res.status(500).json({ message: err.message });
+    var product = await productService.deleteAsync(req.params.id);
+    if (product.status != 200) {
+        res.status(404).json(product);
+    } else {
+        res.status(200).json(product);
     }
 };
 
