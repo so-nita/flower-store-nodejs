@@ -1,0 +1,185 @@
+<%
+const productData = [
+    {
+        "background":"bg-[--green]",
+        status:"10%",
+        image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/1.png",
+        name:"PINK FLOWER TREE",
+        price:"$18.00",
+        discount:"$21.00"
+    },
+    {
+        "background":"bg-[--primary]",
+        status: "HOT",
+        image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/2.png",
+        name:"PREMIUM JOYFUL",
+        price:"$18.00",
+        discount: ""
+    },
+    {
+        "background":"bg-[--green]",
+        status: "12%",
+        image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/3.png",
+        name:"THE WHITE ROSE",
+        price:"$16.00",
+        discount:"$19.00"
+    },
+    {
+        "background":"bg-[--primary]",
+        status: "HOT",
+        image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/4.png",
+        name:"RED ROSE BOUQUET",
+        price:"$20.00",
+        discount:""
+    },
+    {
+        "background":"bg-[--primary]",
+        status:"HOT",
+        image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/5.png",
+        name:"HEART'S DESIRE",
+        price:"$15.00",
+        discount:""
+    },
+    {
+        "background":"bg-[--green]",
+        status: "15%",
+        image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/6.png",
+        name:"ASSORTED ROSES",
+        price:"$17.00",
+        discount: ""
+    },
+    {
+        "background":"bg-[--primary]",
+        status: "HOT",
+        image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/7.png",
+        name:"ROSES SURPRISE",
+        price:"$12.00",
+        discount:""
+    },
+    {
+        "background":"bg-[--primary]",
+        status: "12%",
+        image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/8.png",
+        name:"RED ROSE BOUQUET",
+        price:"$14",
+        discount:"$25.00"
+    }
+];
+
+const payment = [
+    {
+        image: "https://tunatheme.com/tf/html/fiama-preview/fiama/img/icons/payment.png",
+        arialabel: "visa"
+    }
+ ];
+%>
+
+<div class="lg:px-32 px-4">
+    <div class="w-full text-center">
+        <h1 class="lg:text-5xl text-3xl font-[--montserrat] font-bold">new arrival items</h1>
+        <div class="mb-10 mt-2 w-full flex justify-center">
+            <div class="h-[2px] bg-[--primary] w-28"></div>
+        </div>
+    </div>
+    <div class="w-full grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-x-8 gap-y-14 px-10">
+        <% productData.forEach((product) => { %>
+        <div class="group">
+            <div class="card-product w-full bg-white overflow-hidden">
+                <div class="relative">
+                    <span class="absolute top-2 <%= product.background %> font-semibold text-white px-3 text-lg"><%= product.status %></span>
+                    <div class="w-full aspect-[2/3]">
+                        <img src=" <%= product.image %>" alt="Pink Flower Tree"class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="card-overlay flex items-center bg-[--gray] bg-opacity-75">
+                    <button class="searchToCartBtn w-14 h-10 flex justify-center items-center hover:bg-[--primary] duration-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                        </svg>
+                    </button>
+                    <div class="w-full flex justify-center">
+                        <button class="addToCartBtn h-10 w-full text-white hover:bg-[--primary] duration-400">ADD TO CART</button>
+                    </div>
+                    <button class="addToCartBtn w-14 h-10 flex justify-center items-center hover:bg-[--primary] duration-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-shuffle" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.6 9.6 0 0 0 7.556 8a9.6 9.6 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.6 10.6 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.6 9.6 0 0 0 6.444 8a9.6 9.6 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5"/>
+                            <path d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192m0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="w-full pt-5">
+                <div class="flex justify-center">
+                    <p class="hover:text-[--primary] font=[--rale-way] duration-400"><%= product.name %></p>
+                </div>
+                <div class="flex gap-3 justify-center items-center">
+                    <span><%= product.price %></span>
+                    <span class="line-through"><%= product.discount %></span>
+                </div>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+</div>
+
+<!--- Card modal -->
+<div id="cartModal" class="modal z-40 fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+        <div class="flex items-center">
+            <img src="https://tunatheme.com/tf/html/fiama-preview/fiama/img/product/1.png" alt="Heart's Desire" class="w-20 h-full mr-4">
+            <div class="w-full">
+                <div class="flex justify-between items-center mb-4 px-4">
+                    <h2 class="text-lg font-bold">Heart's Desire</h2>
+                    <button id="closeModalBtn" class="text-white bg-[--primary] px-3 py-2">✕</button>
+                </div>
+                <div class="flex gap-3 items-center px-4">
+                    <div class="rounded-full bg-[#008000] text-white h-5 w-5 flex justify-center items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
+                        </svg>
+                    </div>
+                    <p class=""> Successfully added to your Cart</p>
+                </div>
+                <div class="mt-4 flex w-full">
+                    <button class="btn-view btn-view-cart">VIEW CART</button>
+                    <button class="btn-check btn-checkout">CHECKOUT</button>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <p class="text-center">We want to give you <span class="font-semibold">10% discount</span> for your first order,<br>Use (fiama10) discount code at checkout</p>
+            <div class="mt-4 flex space-x-2">
+                <% payment.forEach((payment) => { %>
+                    <img src="<%= payment.image %>" alt="<%= payment.arialabel %>" class="w-full h-6">
+                <% }); %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const cartModal = document.getElementById('cartModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    document.addEventListener('click', (event) => {
+        if (event.target.classList.contains('searchToCartBtn')) {
+            cartModal.style.display = 'flex';
+        } else if (event.target === closeModalBtn || event.target === cartModal) {
+            cartModal.style.display = 'none';
+        }
+    });
+
+    document.addEventListener('click', (event) => {
+        if (event.target.classList.contains('addToCartBtn')) {
+            cartModal.style.display = 'flex';
+        } else if (event.target === closeModalBtn || event.target === cartModal) {
+            cartModal.style.display = 'none';
+        }
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === cartModal) {
+            cartModal.style.display = 'none';
+        }
+    });
+</script>

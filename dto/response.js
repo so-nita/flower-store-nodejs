@@ -9,7 +9,6 @@ const success = (data) => {
 const fail = (error) => {
     return {
         status: 400,
-        data: data.length,
         result: [
             {
                 message: error

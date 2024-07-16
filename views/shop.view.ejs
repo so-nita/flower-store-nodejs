@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+    <!-- Import Style -->
+    <%- include ('styles/link.style.ejs') %>
+
+</head>
+<body>
+    <!-- Navbar -->
+    <%- include ('components/navbar.view.ejs') %>
+    <!-- End Navbar -->
+
+    <!-- Navbar -->
+     <%- include('components/shop-banner.view.ejs') %>
+    <!-- Card Product-->
+    <div class="w-full flex justify-center py-10">
+        <%- include('components/card-product.view.ejs') %>
+    </div>
+
+    <!-- End footer -->
+    <!-- Back to to top button-->
+    <%- include('components/back-to-top.view.ejs') %>
+    <!-- End back to to top button-->
+
+    <!-- Import Script -->
+    <%- include ('styles/script.style.ejs') %>
+
+    <!-- Footer -->
+    <%- include('components/footer.view.ejs') %>
+    <!-- End footer -->
+</body>
+</html>

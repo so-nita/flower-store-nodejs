@@ -1,0 +1,36 @@
+    <div class="relative w-full lg:h-[40rem] h-[30rem] banner">
+        <div class="absolute inset-0 z-0">
+            <img class="w-full h-full object-cover" src="https://media.istockphoto.com/id/938128386/photo/peach-blossoms-background-in-spring.webp?b=1&s=170667a&w=0&k=20&c=7Vx2XkOWgNyS8YZahKocjQEit77BtCDNkXIGTJQnkgE=" alt="">
+        </div>
+        <div class="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50">
+            <div class="mb-7">
+                <p class="flower-gift text-white text-sm md:text-lg lg:text-xl">Flower & Gift</p>
+            </div>
+            <h1 class="perfect text-white text-2xl md:text-4xl lg:text-6xl font-bold text-center mb-5">Perfect Bunch<br> For Every Occasion</h1>
+            <button class="btn-shop-now mt-4 px-6 py-2 bg-[--primary] text-white font-semibold rounded-full">Shop Now</button>
+        </div>
+    </div>
+    <script>
+        // Initialize ScrollReveal
+        window.sr = ScrollReveal({
+                reset: true,
+            });
+        // Apply ScrollReveal animations on flower & gift
+        sr.reveal(".banner .flower-gift", {
+            origin: "bottom",
+            duration: 1000,
+            distance: "100px",
+        });
+        // Apply ScrollReveal animations on perfect bunch For every occasion
+        sr.reveal(".banner .perfect ", {
+            origin: "bottom",
+            duration: 2000,
+            distance: "400px",
+        });
+        // Apply ScrollReveal animations on button shop now
+        sr.reveal(".banner .btn-shop-now ", {
+            origin: "bottom",
+            duration: 4000,
+            distance: "500px",
+        });
+    </script>

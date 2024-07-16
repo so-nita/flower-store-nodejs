@@ -14,12 +14,50 @@
     <%- include ('components/navbar.view.ejs') %>
     <!-- End Navbar -->
 
+    <!-- Banner -->
+     <div class="overflow-hidden">
+        <%- include('components/home-banner.view.ejs') %>
+    </div>
+    <!-- End Banner-->
+
+    <!-- Card Product-->
+    <div class="w-full flex justify-center py-10">
+        <%- include('components/card-product.view.ejs') %>
+    </div>
+    <!-- End Card Product -->
+
+    <!-- Deal of the day -->
+    <div class="flex justify-center py-10">
+        <%- include('components/deal-of-the-day.view.ejs') %>
+    </div>
+    <!-- End Deal of the day -->
+
+    <!-- Slide product -->
+    <%- include('components/slide-product.view.ejs') %>
+    <!-- End slide product -->
+
+    <!-- Feature area  -->
+    <%- include('components/feature-area.view.ejs') %>
+    <!-- End feature area  -->
+
+    <!-- subcribe -->
+    <%- include('components/subcribe.view.ejs') %>
+    <!-- End subcribe -->
     <!-- Content -->
-    <h1 class="text-4xl text-red-500" style="font-family: var(--rale-way); color: var(--custom-color);"> Hi </h1>
-    <p class="custom-class">This is a paragraph with custom styles.</p>
+    <!-- <h1 class="text-4xl text-red-500" style="font-family: var(--rale-way); color: var(--custom-color);"> Hi </h1>
+    <p class="custom-class">This is a paragraph with custom styles.</p> -->
+
     <!-- End Content -->
+    <!-- Footer -->
+    <%- include('components/footer.view.ejs') %>
+    <!-- End footer -->
+
+    <!-- Back to to top button-->
+    <%- include('components/back-to-top.view.ejs') %>
+    <!-- End back to to top button-->
 
     <!-- Import Script -->
     <%- include ('styles/script.style.ejs') %>
+
 </body>
 </html>
