@@ -17,17 +17,13 @@ connectDB();
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
+
 // Use routes
+app.use('/api/auth', routers.authRoutes());
+
 app.use('/api/products', routers.productRoutes());
 app.use('/api/categories', routers.categoryRoutes());
 
-// Run Swagger UI
-// app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
-
-// Default route
-app.get('/', (req, res) => {
-    res.send('Welcome to the Flower Store API!');
-});
 
 mongoose.connection.once('open', () => {
     console.log('Connected to database');

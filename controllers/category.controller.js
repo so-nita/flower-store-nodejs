@@ -1,29 +1,47 @@
-
 const categoryService = require('../services/category.service');
 
-const getAllAsync = async () => {
-    var categories = await categoryService.getAllAsync();
-    return categories;
+const getAllAsync = async (req, res) => {
+    let data = await categoryService.getAllAsync();
+    if(data.status != 200){
+        return res.status(400).json(data);
+    }
+    return res.status(data.status).json(data);
 }
 
-const getByIdAsync = async (id) => {
-    var category = await categoryService.getByIdAsync(id);
-    return category;
-}
+const getByIdAsync = async (req, res) => {
+    var category = await categoryService.getByIdAsync(req.params.id);
+    if (category.status != 200) {
+        res.status(404).json(category);
+    } else {
+        res.status(200).json(category);
+    }
+};
 
-const createAsync = async (category) => {
-    var newCategory = await categoryService.createAsync(category);
-    return newCategory;
+const createAsync = async (req, res) => {
+    var category = await categoryService.createAsync(req.body);
+    if (category.status != 200) {
+        res.status(404).json(category);
+    } else {
+        res.status(200).json(category);
+    }
 };
 
 const updateAsync = async (id, category) => {
-    var updatedCategory = await categoryService.updateAsync(id, category);
-    return updatedCategory;
+    var category = await categoryService.updateAsync(id, category);
+    if (category.status != 200) {
+        res.status(404).json(category);
+    } else {
+        res.status(200).json(category);
+    }
 };  
 
-const deleteAsync = async (id) => {
-    var category = await categoryService.deleteAsync(id);
-    return category;
+const deleteAsync = async (req, res) => {
+    var category = await categoryService.deleteAsync(req.params.id);
+    if (category.status != 200) {
+        res.status(404).json(category);
+    } else {
+        res.status(200).json(category);
+    }
 };
 
 module.exports = {

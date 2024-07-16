@@ -2,7 +2,7 @@ const success = (data) => {
     return {
         status: 200,
         data: data.length,
-        result: []
+        result: data
     }
 }
 

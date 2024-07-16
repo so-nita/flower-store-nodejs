@@ -1,11 +1,11 @@
 const Category = require('../models/Category');
-
 const Response = require('../dto/response');
+const { validationResult } = require('express-validator');
 
 const getAllAsync = async () => {
     try {
-        let categories = await Category.find();
-        return Response.SuccessResponse(categories);
+        let Categories = await Category.find();
+        return Response.success(Categories);
     } catch (error) {
         return Response.fail(error);
     }
@@ -14,30 +14,36 @@ const getAllAsync = async () => {
 const getByIdAsync = async (id) => {
     try {
         let category = await Category.findById(id);
-        return Response.SuccessResponse(category);
+        if (category == null) {
+            return Response.fail('Category not found');
+        }
+        return Response.success(category);
     } catch (error) {
-        return Response.fail(error);
+        return Response.fail('Category not found');
     }
 };
 
 const createAsync = async (category) => {
     try {
-        var valid = ValidityState(validate(category));
-        if(valid.error){
-            return Response.fail(valid.error);
+        // Validate the incoming data
+        const errors = validationResult(category);
+        if (!errors.isEmpty()) {
+            return Response.fail(errors.array().map(err => err.msg));
         }
-        let newCategory = await Category.create(category);
 
-        return Response.SuccessResponse(newCategory);
+        // Create the category
+        let newCategory = await Category.create(categoryData);
+        return Response.success(newCategory);
     } catch (error) {
-        return Response.fail(error);
+        console.error('Error creating category:', error);
+        return Response.fail(error.message);
     }
 };
 
 const updateAsync = async (id, category) => {
     try {
         let updatedCategory = await Category.findByIdAndUpdate(id, category, { new: true });
-        return Response.SuccessResponse(updatedCategory);
+        return Response.success(updatedCategory);
     } catch (error) {
         return Response.fail(error);
     }
@@ -46,7 +52,11 @@ const updateAsync = async (id, category) => {
 const deleteAsync = async (id) => {
     try {
         let category = await Category.findByIdAndDelete(id);
-        return Response.SuccessResponse(category);
+        console.log(category);
+        if(category==null){
+            return Response.fail('Category not found');
+        }
+        return Response.success('Deleted Successfully');
     } catch (error) {
         return Response.fail(error);
     }
