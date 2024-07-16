@@ -9,15 +9,9 @@
 
 </head>
 <body>
-    <!-- <% navlinks.forEach((navabr) => { %>
-        <a class="text-black hover:text-[#E55472] <%= navabr.url === currentRoute ? 'active' : '' %>" href="<%= navabr.url %>">
-            <%= navabr.name %>
-        </a>
-    <% }); %> -->
-     <!-- Navbar -->
-     <%- include('components/navbar.view.ejs', { navlinks: navlinks }) %>
-
-     <!-- End Navbar -->
+    <!-- Navbar -->
+    <%- include('components/navbar.view.ejs') %>
+    <!-- End Navbar -->
 
     <!-- Banner -->
      <div class="overflow-hidden">

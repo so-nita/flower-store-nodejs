@@ -9,7 +9,6 @@ app.set('view engine', 'ejs');
 
 // Set the directory for views
 app.set('views', path.join(__dirname, 'views'));
-app.set('view options', { debug: true });
 
 // Define a route for the home page
 app.get('/', async (req, res) => {
@@ -20,7 +19,7 @@ app.get('/', async (req, res) => {
         res.render('index.view.ejs', {
             title: 'Home Page',
             currentRoute: '/',
-            navlinks
+            navlinks: navlinks
         });
     } catch (error) {
         console.error('Error fetching data:', error);
