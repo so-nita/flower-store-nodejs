@@ -1,13 +1,15 @@
 <%
 <!---Mavbar data -->
 const navlinks = [
-    { label: "HOME", link: "/" },
-    { label: "PAGE", link: "page" },
-    { label: "SHOP", link: "/shop" },
-    { label: "PORTFOLIO", link: "portfolio" },
-    { label: "NEWS", link: "news" },
-    { label: "CONTACT", link: "contact" }
+    { name: "HOME", url: "/" },
+    { name: "PAGE", url: "page" },
+    { name: "SHOP", url: "/shop" },
+    { name: "PORTFOLIO", url: "portfolio" },
+    { name: "NEWS", url: "news" },
+    { name: "CONTACT", url: "contact" }
 ];
+
+<!-- const navlinks = navlinks.data ; -->
 
 <!--- Product -->
 const product = [
@@ -38,6 +40,7 @@ const product = [
         color: var(--primary);
     }
 </style>
+
 <main class="flex justify-center px-10">
     <nav class="flex justify-between lg:px-4 lg:w-4/5 w-full items-center py-6">
         <section class="lg:flex hidden">
@@ -73,8 +76,8 @@ const product = [
         </section>
         <div class="hidden lg:flex items-center gap-8">
             <% navlinks.forEach((navabr) => { %>
-                <a class="text-black hover:text-[#E55472] <%= navabr.link === currentRoute ? 'active' : '' %>" href="<%= navabr.link %>">
-                    <%= navabr.label %>
+                <a class="text-black hover:text-[#E55472] <%= navabr.url === currentRoute ? 'active' : '' %>" href="<%= navabr.url %>">
+                    <%= navabr.name %>
                 </a>
             <% }); %>
         </div>
@@ -117,8 +120,8 @@ const product = [
                 </div>
                 <div class="flex flex-col gap-8">
                     <% navlinks.forEach((navbar) => { %>
-                        <a class="text-black hover:text-[#E55472] <%= navbar.link === currentRoute ? 'active' : '' %>" href="<%= navbar.link %>">
-                            <%= navbar.label %>
+                        <a class="text-black hover:text-[#E55472] <%= navbar.url === currentRoute ? 'active' : '' %>" href="<%= navbar.url %>">
+                            <%= navbar.name %>
                         </a>
                     <% }); %>
                 </div>
@@ -126,7 +129,7 @@ const product = [
         </div>
         <!-- Sidebar product -->
         <div id="sideProduct" class="fixed h-full z-30 w-screen bg-black/50 backdrop-blur-sm top-0 right-0 translate-x-full transition-all">
-            <section class="text-black bg-white text-left overflow-y-auto overflow-hidden flex-col z-0 absolute cursor-pointer right-0 z-40 cursor-pointer top-0 h-full p-8 gap-8 flex lg:w-1/4 w-full">
+            <section class="text-black bg-white text-left overflow-y-auto overflow-hidden flex-col z-0 absolute cursor-pointer right-0 z-40 cursor-pointer top-0 h-full p-8 gap-8 flex lg:w-1/4 w-2/3">
                 <div class="flex justify-between items-center pb-8 border-b">
                     <h1 class="text-lg">CART</h1>
                     <svg class="text-3xl cursor-pointer" onclick="toggleProduct(false)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
@@ -151,8 +154,8 @@ const product = [
                     <p class="text-[#E55472]">$65.00</p>
                 </div>
                 <div class="mt-4 flex justify-between w-full">
-                    <button class="btn-view w-40 btn-view-cart">VIEW CART</button>
-                    <button class="btn-check w-40 btn-checkout">CHECKOUT</button>
+                    <button class="btn-view lg:w-40 w-32 btn-view-cart">VIEW CART</button>
+                    <button class="btn-check lg:w-40 w-32 btn-checkout">CHECKOUT</button>
                 </div>
                 <div class="pb-10">
                     <p>Free Shipping on All Orders Over $100!</p>
