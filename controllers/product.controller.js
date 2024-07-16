@@ -1,5 +1,6 @@
 const { json } = require('express');
 const productService = require('../services/product.service');
+const Product = require('../models/Product');
 
 const getAllAsync = async (req, res) => {
     try {
@@ -28,6 +29,7 @@ const getByIdAsync = async (req, res) => {
 const createAsync = async (req, res) => {
     try {
         var newProduct = await productService.createAsync(req.body);
+        
         res.status(201).json(newProduct);
     } catch (err) {
         res.status(500).json({ message: err.message });
