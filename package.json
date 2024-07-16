@@ -13,11 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^10.4.19",
-<<<<<<< HEAD
     "axios": "^1.7.2",
-=======
-    "bcryptjs": "^2.4.3",
->>>>>>> 86b3047fb5980a8e0ad67b486841b57f9595420d
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.19.2",

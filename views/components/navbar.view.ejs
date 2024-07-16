@@ -1,14 +1,4 @@
 <%
-<!---Mavbar data -->
-const navlinks = [
-    { name: "HOME", url: "/" },
-    { name: "PAGE", url: "page" },
-    { name: "SHOP", url: "/shop" },
-    { name: "PORTFOLIO", url: "portfolio" },
-    { name: "NEWS", url: "news" },
-    { name: "CONTACT", url: "contact" }
-];
-
 <!--- Product -->
 const product = [
     {
@@ -34,6 +24,11 @@ const product = [
 ];
 
 %>
+<style>
+    .active {
+        color: var(--primary);
+    }
+</style>
 <main class="flex justify-center px-10">
     <nav class="flex justify-between lg:px-4 lg:w-4/5 w-full items-center py-6">
         <section class="lg:flex hidden">
@@ -122,7 +117,7 @@ const product = [
         </div>
         <!-- Sidebar product -->
         <div id="sideProduct" class="fixed h-full z-30 w-screen bg-black/50 backdrop-blur-sm top-0 right-0 translate-x-full transition-all">
-            <section class="text-black bg-white text-left overflow-y-auto overflow-hidden flex-col z-0 absolute cursor-pointer right-0 z-40 cursor-pointer top-0 h-full p-8 gap-8 flex lg:w-1/4 w-2/3">
+            <section class="text-black bg-white text-left overflow-y-auto overflow-hidden flex-col z-0 absolute cursor-pointer right-0 z-40 cursor-pointer top-0 h-full p-8 gap-8 flex lg:w-[40%] w-2/3">
                 <div class="flex justify-between items-center pb-8 border-b">
                     <h1 class="text-lg">CART</h1>
                     <svg class="text-3xl cursor-pointer" onclick="toggleProduct(false)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
