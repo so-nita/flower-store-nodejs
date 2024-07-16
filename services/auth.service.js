@@ -6,10 +6,9 @@ const bcrypt = require('bcryptjs');
 
 
 const registerAsync = async (userData) => {
-    const { username, email, password, } = userData;
-    try{
+    const { username, email, password } = userData;
+    try {
         const errors = validationResult<User>(userData);
-        console.log(errors);
         if (!errors == null && !errors.isEmpty()) {
             return Response.fail(errors.array().map(err => err.msg));
         }
@@ -18,42 +17,39 @@ const registerAsync = async (userData) => {
         if (user) {
             return Response.fail('Email already exists');
         }
-        
+
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+
         user = new User({
             username,
             email,
-            password,
+            password: hashedPassword,
             isAdmin: false,
             token: ''
         });
 
-        const salt = await bcrypt.genSalt(10);
-        user.password = await bcrypt.hash(password, salt);
-
         await user.save();
         return Response.success(user);
-
-    }catch(error){
+    } catch (error) {
         return Response.fail(error.message);
     }
 };
 
 const loginAsync = async (userData) => {
-    
     const { email, password } = userData;
-    try{
+    try {
         const errors = validationResult<User>(userData);
         if (!errors == null && !errors.isEmpty()) {
             return Response.fail(errors.array().map(err => err.msg));
         }
-    
+
         let user = await User.findOne({ email });
         if (!user) {
             return Response.fail('Invalid Credentials');
         }
 
-        const isMatch = await bcrypt.compare(password, user.password);  
-
+        const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             return Response.fail('Invalid Credentials');
         }
@@ -64,7 +60,7 @@ const loginAsync = async (userData) => {
         await user.save();
 
         return Response.success({ token });
-    }catch(error){
+    } catch (error) {
         return Response.fail(error.message);
     }
 };

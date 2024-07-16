@@ -9,7 +9,6 @@ const port = process.env.PORT || 3001;
 
 const connectDB = require('./config/DbConfig');
 const routers = require('./routes/router');
-const protectedRoutes = require('./routes/protected');
 
 // Connect to the database
 connectDB();
@@ -21,7 +20,6 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 
 // Use routes
 app.use('/api/auth', routers.authRoutes());
-app.use('/api/protected', protectedRoutes); // Protect this route
 
 app.use('/api/products', routers.productRoutes());
 app.use('/api/categories', routers.categoryRoutes());

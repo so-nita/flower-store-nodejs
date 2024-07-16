@@ -5,11 +5,15 @@ const productController = require('../controllers/product.controller');
 const categoryController = require('../controllers/category.controller');
 const validatorData = require('../middlewares/validatorData');
 const { validate } = require('../middlewares/errorHandler');
+const { verifyAuthorization } = require('../middlewares/auth');
 
 
 // Api Auth 
 const authRoutes = () => {
     const router = express.Router();
+    // Apply verifyAuthorization middleware to all endpoints in authRoutes
+    router.use(verifyAuthorization);
+    
     router.post('/login', validatorData.loginValidationRules, validate, authController.loginAsync);
     router.post('/register', validatorData.registerValidationRules, validate, authController.registerAsync);
     return router;
@@ -18,6 +22,8 @@ const authRoutes = () => {
 // Api Products
 const productRoutes = () => {
     const router = express.Router();
+    // Apply verifyAuthorization middleware to all endpoints in authRoutes
+    router.use(verifyAuthorization);
     router.get('/', productController.getAllAsync);
     router.get('/:id', productController.getByIdAsync);
     router.post('/',validatorData.productValidationRules, validate, productController.createAsync);
@@ -29,6 +35,9 @@ const productRoutes = () => {
 // Api Categories
 const categoryRoutes = () => {
     const router = express.Router();
+    // Apply verifyAuthorization middleware to all endpoints in authRoutes
+    router.use(verifyAuthorization);
+
     router.get('/', categoryController.getAllAsync);
     router.get('/:id', categoryController.getByIdAsync);
     router.post('/',  categoryController.createAsync);
@@ -36,6 +45,8 @@ const categoryRoutes = () => {
     router.delete('/:id', categoryController.deleteAsync);
     return router;
 }
+
+
 
 module.exports = {
     authRoutes,
