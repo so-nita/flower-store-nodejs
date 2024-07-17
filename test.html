@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Prevent scrolling */
+        }
+        .background {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="background" id="background"></div>
+
+    <!-- Load Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <!-- Load Vanta.js Halo effect -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.halo.min.js"></script>
+    
+    <script>
+        VANTA.HALO({
+          el: "#background",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          amplitudeFactor: 2.20,
+          xOffset: 0.20,
+          yOffset: -0.15,
+          size: 0.70
+        });
+
+        // Re-initialize VANTA on window resize for responsiveness
+        window.addEventListener('resize', () => {
+          VANTA.HALO({
+            el: "#background",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            amplitudeFactor: 2.20,
+            xOffset: 0.20,
+            yOffset: -0.15,
+            size: 0.70
+          });
+        });
+    </script>
+</body>
+</html>
