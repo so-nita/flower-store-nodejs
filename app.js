@@ -49,6 +49,28 @@ app.get('/shop', async (req, res) => {
     }
 });
 
+// Define a route for the shop page
+app.get('/login', async (req, res) => {
+    try {
+        res.render('login.view.ejs', {
+            title: 'Login',
+        });
+    } catch (error) {
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+// Define a route for the register page
+app.get('/register', async (req, res) => {
+    try {
+        res.render('register.view.ejs', {
+            title: 'Register',
+        });
+    } catch (error) {
+        res.status(500).send('Internal Server Error');
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
