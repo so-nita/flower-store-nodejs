@@ -11,4 +11,4 @@ const orderDetailSchema = new Schema({
     orderDate: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('OrderDetail', orderDetailSchema);
+module.exports = mongoose.model('OrderDetails', orderDetailSchema);
